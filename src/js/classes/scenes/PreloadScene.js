@@ -7,6 +7,7 @@ export default class PreloadScene extends Phaser.Scene {
     });
   }
   preload() {
+    /*
     this.preloader = this.add.graphics();
     this.load.on(`progress`, this.onProgress, this);
     this.load.on(`complete`, this.onComplete, this);
@@ -18,6 +19,7 @@ export default class PreloadScene extends Phaser.Scene {
       frameWidth: 11,
       frameHeight: 25
     });
+    */
   }
   onProgress(value) {
     console.log(`Loading: ${Math.round(value * 100)}%`);

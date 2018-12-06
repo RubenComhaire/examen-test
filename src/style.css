@@ -11,5 +11,4 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  cursor: none;
 }
