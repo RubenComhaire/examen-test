@@ -1,4 +1,4 @@
-import Preloader from '../../gameobjects/Preloader';
+import Preloader from '../gameobjects/Preloader';
 
 export default class PreloadScene extends Phaser.Scene {
   constructor() {
