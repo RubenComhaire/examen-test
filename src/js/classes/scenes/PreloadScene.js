@@ -1,4 +1,4 @@
-
+import Preloader from '../../gameobjects/Preloader';
 
 export default class PreloadScene extends Phaser.Scene {
   constructor() {
@@ -7,37 +7,21 @@ export default class PreloadScene extends Phaser.Scene {
     });
   }
   preload() {
-    /*
-    this.preloader = this.add.graphics();
-    this.load.on(`progress`, this.onProgress, this);
-    this.load.on(`complete`, this.onComplete, this);
-    this.load.spritesheet(`dog`, `./assets/dog_LR.png`, {
-      frameWidth: 26,
-      frameHeight: 25
-    });
-    this.load.spritesheet(`dog2`, `./assets/dog_UD.png`, {
-      frameWidth: 11,
-      frameHeight: 25
-    });
-    */
-  }
-  onProgress(value) {
-    console.log(`Loading: ${Math.round(value * 100)}%`);
-    this.preloader.clear();
-    this.preloader.fillStyle(black, 1);
-    this.preloader.fillRect(
-      0,
-      this.game.config.height / 2,
-      this.game.config.width * value,
-      5
+    this.preloader = new Preloader(
+      this,
+      this.sys.game.config.width / 2,
+      this.sys.game.config.height / 2,
+      `preloader`
+    );
+    this.preloader.anims.play(`loading`);
+    this.load.atlas(
+      `emoticons`,
+      `assets/images/emoticons.png`,
+      `assets/images/emoticons.json`
     );
   }
-
-  onComplete() {
-    this.preloader.destroy();
+  create() {
     this.scene.start(`game`);
   }
-
-  create() {}
   update() {}
 }

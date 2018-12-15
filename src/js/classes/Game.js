@@ -1,22 +1,23 @@
-import PreloadScene from "./scenes/PreloadScene.js";
-import GameScene from "./scenes/GameScene.js";
+import BootScene from './scenes/BootScene.js';
+import PreloadScene from './scenes/PreloadScene.js';
+import GameScene from './scenes/GameScene.js';
 class Game extends Phaser.Game {
   constructor() {
-    super({
+    const config = {
       type: Phaser.AUTO,
       width: 500,
       height: 750,
-      title: `Exam`,
-      parent: "game",
-      scene: [PreloadScene, GameScene],
-      version: `1.0`,
+      parent: 'game',
+      scene: [BootScene, PreloadScene, GameScene],
       physics: {
-        default: `arcade`,
+        default: 'arcade',
         arcade: {
-          debug: false
+          debug: false,
+          gravity: {y: 100}
         }
       }
-    });
+    };
+    super(config);
   }
 }
 export default Game;

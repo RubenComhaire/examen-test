@@ -7,6 +7,10 @@
     'home' => array(
       'controller' => 'Game',
       'action' => 'index'
+    ),
+    'score' => array(
+      'controller' => 'Score',
+      'action' => 'index'
     )
     );
   if(empty($_GET['page'])){
